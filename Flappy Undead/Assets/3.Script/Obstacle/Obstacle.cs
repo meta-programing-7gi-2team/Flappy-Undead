@@ -13,6 +13,11 @@ public class Obstacle : MonoBehaviour
         {
             //score.text=
         }
+
+        if(other.tag == "Score_Zone")
+        {
+
+        }
    }
 
 }

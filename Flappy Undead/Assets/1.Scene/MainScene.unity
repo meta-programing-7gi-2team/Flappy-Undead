@@ -10398,9 +10398,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6257148595418253033, guid: b981cf52a4c67e14db98cc3595f06589, type: 3}
-  initialObstacles: 7
-  poolCount: 15
-  spawnInterval: 0.5
+  poolCount: 3
+  TimeSpawn_Min: 1.25
+  TimeSpawn_Max: 2.25
+  X_Pos: 0
+  Ypos_min: -0.7
+  Ypos_max: 0.5
+  Z_Start_Pos: -1.7
+  Z_Spawn_Interval: 0.5
 --- !u!4 &1277857135
 Transform:
   m_ObjectHideFlags: 0

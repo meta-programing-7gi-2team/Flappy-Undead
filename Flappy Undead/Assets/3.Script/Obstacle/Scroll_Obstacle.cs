@@ -10,14 +10,5 @@ public class Scroll_Obstacle : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-
-        if (transform.position.z < leftBound)
-        {
-            ObstacleSpawner spawner = FindObjectOfType<ObstacleSpawner>();
-            if (spawner != null)
-            {
-                spawner.ReturnObstacle(gameObject);
-            }
-        }
     }
 }

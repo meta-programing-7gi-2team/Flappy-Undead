@@ -5,61 +5,58 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject obstaclePrefab;
-    [SerializeField] private int initialObstacles = 7;
-    [SerializeField] private int poolCount = 15;
-    [SerializeField] private float spawnInterval = 2.0f;
-    private Queue<GameObject> poolQueue;
-    private float timer = 0;
+    [SerializeField] private int poolCount = 4;
+    [SerializeField] private float TimeSpawn_Min = 1.25f;
+    [SerializeField] private float TimeSpawn_Max = 2.25f;
+    private float TimeSpawn;
+
+    [SerializeField] private float X_Pos = 0f;
+
+    [SerializeField] private float Ypos_min = -0.7f;
+    [SerializeField] private float Ypos_max = 0.5f;
+
+    [SerializeField] private float Z_Start_Pos = 0f;
+    [SerializeField] private float Z_Spawn_Interval = 2.0f;
+
+    private GameObject[] Obstacles;
+    private int Current_arr_index = 0;
+
+    private Vector3 PoolPosition = new Vector3(0, -25f, 0);
+    private float LastSpawnTime;
+    private float Z_Pos;
 
     private void Start()
     {
-        InitializePool();
-        for (int i = 0; i < initialObstacles; i++)
+        Obstacles = new GameObject[poolCount];
+
+        for(int i=0; i<Obstacles.Length; i++)
         {
-            SpawnObstacle();
+            Obstacles[i] = Instantiate(obstaclePrefab, PoolPosition, Quaternion.identity);
         }
-    }
+        LastSpawnTime = 0;
+        TimeSpawn = 0;
+        Z_Pos = Z_Start_Pos;
+}
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > spawnInterval)
+        if (Time.time >= LastSpawnTime + TimeSpawn)
         {
-            SpawnObstacle();
-            timer = 0;
-        }
-    }
+            LastSpawnTime = Time.time;
+            TimeSpawn = Random.Range(TimeSpawn_Min, TimeSpawn_Max);
 
-    private void InitializePool()
-    {
-        poolQueue = new Queue<GameObject>();
+            float Ypos = Random.Range(Ypos_min, Ypos_max);
 
-        for (int i = 0; i < poolCount; i++)
-        {
-            GameObject obj = Instantiate(obstaclePrefab);
-            obj.SetActive(false);
-            poolQueue.Enqueue(obj);
-        }
-    }
+            Obstacles[Current_arr_index].SetActive(false);
+            Obstacles[Current_arr_index].SetActive(true);
 
-    private void SpawnObstacle()
-    {
-        if (poolQueue.Count > 0)
-        {
-            GameObject obstacle = poolQueue.Dequeue();
-            obstacle.transform.position = new Vector3(0, 0, -2.2f);
-            obstacle.SetActive(true);
+            Obstacles[Current_arr_index].transform.position = new Vector3(X_Pos, Ypos, Z_Pos);
+            Z_Pos += Z_Spawn_Interval;
+            Current_arr_index++;
+            if (Current_arr_index >= poolCount)
+            {
+                Current_arr_index = 0;
+            }
         }
-        else
-        {
-            GameObject obstacle = Instantiate(obstaclePrefab);
-            obstacle.transform.position = new Vector3(0, 0, -2.2f);
-        }
-    }
-
-    public void ReturnObstacle(GameObject obstacle)
-    {
-        obstacle.SetActive(false);
-        poolQueue.Enqueue(obstacle);
     }
 }
