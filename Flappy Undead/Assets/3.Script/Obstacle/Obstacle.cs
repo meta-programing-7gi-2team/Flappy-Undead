@@ -9,12 +9,12 @@ public class Obstacle : MonoBehaviour
 
    private void OnTriggerEnter(Collider other)
    {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             Debug.Log("충돌");
         }
 
-        if(other.tag == "Score_Zone")
+        if(other.CompareTag("Score_Zone"))
         {
             Debug.Log("스코어 충돌");
         }
