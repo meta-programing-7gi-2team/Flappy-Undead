@@ -8,10 +8,6 @@ public class Scroll_Obstacle : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+        transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
     }
-
-
-
-
 }

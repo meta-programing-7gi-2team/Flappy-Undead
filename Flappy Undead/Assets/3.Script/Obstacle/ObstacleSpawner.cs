@@ -18,16 +18,4 @@ public class ObstacleSpawner : MonoBehaviour
             timer = 0;
         }
     }
-
-   //private void SpawnObstacle()
-   //{
-   //    float yOffset = Random.Range(-heightOffset, heightOffset);
-   //    Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y + yOffset, 0);
-   //    Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
-   //}
-
-
-
-
-
 }
