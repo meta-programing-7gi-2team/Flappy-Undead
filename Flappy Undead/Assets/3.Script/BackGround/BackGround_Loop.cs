@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class BackGround_Loop : MonoBehaviour
 {
-    public GameObject[] tiles;
-    public float tileWidth;
-    private Transform playerTransform;
-    private Vector3 lastTileEnd;
+    [SerializeField] private bool isBack = false; // 뒤로 이동할지 여부
+    [SerializeField] private float panelSize = 20f; // 뒤로 이동할지 여부
+    public float scrollSpeed = 2f; // 이동 속도
+    public float panelDepth; // 패널의 깊이 길이
+
+    private float startZ; // 패널의 시작 위치
+
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        lastTileEnd = tiles[tiles.Length - 1].transform.position + new Vector3(tileWidth, 0, 0);
+        // 패널의 시작 위치를 설정합니다.
+        startZ = transform.position.z;
     }
+
     void Update()
     {
-        if (playerTransform.position.x > lastTileEnd.x - (tiles.Length * tileWidth))
+        // 패널을 이동시킵니다.
+        Vector3 direction = isBack ? Vector3.back : Vector3.forward;
+        transform.Translate(direction * scrollSpeed * Time.deltaTime);
+
+        // 패널이 경계를 넘어가면 재배치합니다.
+        if (transform.position.z < startZ - panelDepth)
         {
-            RepositionTile();
+            RepositionPanel();
         }
     }
-    void RepositionTile()
-    {
-        GameObject firstTile = tiles[0];
-        Vector3 newPosition = lastTileEnd;
-        firstTile.transform.position = newPosition;
-        lastTileEnd = newPosition + new Vector3(tileWidth, 0, 0);
 
-        // 리스트를 순환시킵니다.
-        for (int i = 0; i < tiles.Length - 1; i++)
-        {
-            tiles[i] = tiles[i + 1];
-        }
-        tiles[tiles.Length - 1] = firstTile;
+    void RepositionPanel()
+    {
+        // 패널을 반대쪽 경계로 재배치합니다.
+        transform.position = new Vector3(transform.position.x, transform.position.y, panelSize);
     }
 }
