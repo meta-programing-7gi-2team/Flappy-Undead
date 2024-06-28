@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         player_rid.velocity = Vector3.up * Speed;
     }
-    public void Hit()
+    public void OnDamage()
     {
         Health--;
         if(Health <= 0)
