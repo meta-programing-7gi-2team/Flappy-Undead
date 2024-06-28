@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174726809}
   - component: {fileID: 174726810}
+  - component: {fileID: 174726811}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -228,6 +229,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8a2cbef3dcbac4cb7fb879eeb433c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1435249978}
+--- !u!114 &174726811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174726808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c4f80fe8c49cb419624d369056f72b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!1001 &280534574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1592,6 +1607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327e053d2b9da4d4aa0690034e03c3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 174726808}
+  timeDiff: 5
+  timer: 0
 --- !u!4 &2112304725
 Transform:
   m_ObjectHideFlags: 0
