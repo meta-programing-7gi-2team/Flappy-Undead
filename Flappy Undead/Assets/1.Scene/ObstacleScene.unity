@@ -10398,12 +10398,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6257148595418253033, guid: b981cf52a4c67e14db98cc3595f06589, type: 3}
-  poolCount: 10
+  poolCount: 8
   TimeSpawn: 2
   X_Pos: 0
   Ypos_min: -0.7
   Ypos_max: 0.5
-  Z_Start_Pos: 4
+  Z_Start_Pos: 2
   Z_Spawn_Interval: 0.3
 --- !u!4 &1277857135
 Transform:
@@ -18288,7 +18288,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!136 &498253721883148067
 CapsuleCollider:
@@ -18316,6 +18316,7 @@ GameObject:
   - component: {fileID: 498253721883148064}
   - component: {fileID: 498253721883148066}
   - component: {fileID: 498253721883148067}
+  - component: {fileID: 498253721883148069}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -18323,6 +18324,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &498253721883148069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498253721883148068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5cadf70e92fe2a4c8078253e445d754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &498253721974422436
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

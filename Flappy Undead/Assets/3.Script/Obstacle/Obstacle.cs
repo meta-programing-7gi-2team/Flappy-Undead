@@ -11,12 +11,12 @@ public class Obstacle : MonoBehaviour
    {
         if (other.tag == "Player")
         {
-            //score.text=
+            Debug.Log("충돌");
         }
 
         if(other.tag == "Score_Zone")
         {
-
+            Debug.Log("스코어 충돌");
         }
    }
 
