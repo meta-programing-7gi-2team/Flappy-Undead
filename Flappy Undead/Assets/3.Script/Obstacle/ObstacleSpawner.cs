@@ -6,9 +6,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject obstaclePrefab;
     [SerializeField] private int poolCount = 4;
-    [SerializeField] private float TimeSpawn_Min = 1.25f;
-    [SerializeField] private float TimeSpawn_Max = 2.25f;
-    private float TimeSpawn;
+    [SerializeField] private float TimeSpawn = 3f;
 
     [SerializeField] private float X_Pos = 0f;
 
@@ -16,7 +14,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private float Ypos_max = 0.5f;
 
     [SerializeField] private float Z_Start_Pos = 0f;
-    [SerializeField] private float Z_Spawn_Interval = 2.0f;
+    [SerializeField] private float Z_Spawn_Interval = 2f;
 
     private GameObject[] Obstacles;
     private int Current_arr_index = 0;
@@ -34,7 +32,6 @@ public class ObstacleSpawner : MonoBehaviour
             Obstacles[i] = Instantiate(obstaclePrefab, PoolPosition, Quaternion.identity);
         }
         LastSpawnTime = 0;
-        TimeSpawn = 0;
         Z_Pos = Z_Start_Pos;
 }
 
@@ -43,7 +40,6 @@ public class ObstacleSpawner : MonoBehaviour
         if (Time.time >= LastSpawnTime + TimeSpawn)
         {
             LastSpawnTime = Time.time;
-            TimeSpawn = Random.Range(TimeSpawn_Min, TimeSpawn_Max);
 
             float Ypos = Random.Range(Ypos_min, Ypos_max);
 
