@@ -15305,7 +15305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb2016a50bc45842823da870ba4cff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7da3d50e39ec1f341aa2e7f68f6fb801, type: 2}
+  data: {fileID: 11400000, guid: 60028ba789c68f54c8fd7d2199b435c1, type: 2}
   Speed: 5
   Health: 2
   player_rid: {fileID: 0}
@@ -18641,10 +18641,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 498253721883148068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90acff9f44d3736428dc805e89cea663, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f42778a30c10774b86f927a25abfc4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7da3d50e39ec1f341aa2e7f68f6fb801, type: 2}
+  data: {fileID: 11400000, guid: 60028ba789c68f54c8fd7d2199b435c1, type: 2}
   Cooltime: 5
   LastSkillTime: 0
   player_col: {fileID: 0}
@@ -19654,7 +19654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb2016a50bc45842823da870ba4cff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 8cb89f533342e3341966b91372803990, type: 2}
+  data: {fileID: 11400000, guid: 13a19d3623dbf7c429befe1d4b1b6444, type: 2}
   Speed: 5
   Health: 2
   player_rid: {fileID: 0}
@@ -21243,7 +21243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb2016a50bc45842823da870ba4cff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 696618e2bd9b9be4da6aca62c179d5f7, type: 2}
+  data: {fileID: 11400000, guid: a546a0dfea742cc42ada3d0513bc25a2, type: 2}
   Speed: 5
   Health: 2
   player_rid: {fileID: 0}
@@ -21356,10 +21356,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2283816365539874935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90acff9f44d3736428dc805e89cea663, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f42778a30c10774b86f927a25abfc4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 696618e2bd9b9be4da6aca62c179d5f7, type: 2}
+  data: {fileID: 11400000, guid: a546a0dfea742cc42ada3d0513bc25a2, type: 2}
   Cooltime: 5
   LastSkillTime: 0
   player_col: {fileID: 0}
@@ -21657,7 +21657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb2016a50bc45842823da870ba4cff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: e2e4d16cf5e960e46a357a98f91ea86b, type: 2}
+  data: {fileID: 11400000, guid: e21473817c93820489d74455a77739b0, type: 2}
   Speed: 5
   Health: 2
   player_rid: {fileID: 0}
