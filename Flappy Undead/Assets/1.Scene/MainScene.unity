@@ -10398,8 +10398,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6257148595418253033, guid: b981cf52a4c67e14db98cc3595f06589, type: 3}
-  timeDiff: 0
-  timer: 0
+  initialObstacles: 7
+  poolCount: 15
+  spawnInterval: 0.5
 --- !u!4 &1277857135
 Transform:
   m_ObjectHideFlags: 0
@@ -16327,6 +16328,10 @@ PrefabInstance:
     - target: {fileID: 6257148595418253033, guid: b981cf52a4c67e14db98cc3595f06589, type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257148595418253033, guid: b981cf52a4c67e14db98cc3595f06589, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b981cf52a4c67e14db98cc3595f06589, type: 3}
