@@ -10437,6 +10437,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 363108266605016315, guid: 02a2903fd6ff3bb46b4e541371cc79e4, type: 3}
   m_PrefabInstance: {fileID: 1799491324}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1277857133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1277857135}
+  - component: {fileID: 1277857134}
+  m_Layer: 0
+  m_Name: Obstacle_Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1277857134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277857133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327e053d2b9da4d4aa0690034e03c3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 6257148595418253033, guid: b981cf52a4c67e14db98cc3595f06589, type: 3}
+  poolCount: 8
+  TimeSpawn: 2
+  X_Pos: 0
+  Ypos_min: -0.7
+  Ypos_max: 0.5
+  Z_Start_Pos: 2
+  Z_Spawn_Interval: 0.3
+--- !u!4 &1277857135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277857133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1278220885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3626230592054885986, guid: 71715a5082fc03548a75f67b89faf87b, type: 3}
