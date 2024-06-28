@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public Collider player_col;
     public Renderer player_rend;
     public Animator player_ani;
+    public AudioSource player_au;
+
+    public AudioClip jumpClip;
+    public AudioClip hitClip;
+    public AudioClip deathClip;
 
     private void Awake()
     {
@@ -21,6 +26,7 @@ public class PlayerController : MonoBehaviour
         player_col = GetComponent<Collider>();
         player_rend = GetComponentInChildren<Renderer>();
         player_ani = GetComponent<Animator>();
+        player_au = GetComponent<AudioSource>();
 
         Speed = data.Speed;
         Health = data.Health;
@@ -48,6 +54,7 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         player_rid.velocity = Vector3.up * Speed;
+        player_au.PlayOneShot(jumpClip);
     }
     public void OnDamage()
     {
@@ -55,12 +62,14 @@ public class PlayerController : MonoBehaviour
         if(Health <= 0)
         {
             Dead();
+            return;
         }
+        player_au.PlayOneShot(hitClip);
     }
     public void Dead()
     {
         isDead = true;
-
+        player_au.PlayOneShot(deathClip);
     }
     public void Use_Skill()
     {
