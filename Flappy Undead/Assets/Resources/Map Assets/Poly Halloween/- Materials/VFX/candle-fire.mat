@@ -35,18 +35,19 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: candle-fire
   m_Shader: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
-  m_ShaderKeywords: _ALPHABLEND_ON _EMISSION _EMISSIVE_COLOR_MAP _FLIPBOOKBLENDING_OFF
-    _REQUIRE_UV2
-  m_LightmapFlags: 0
+  m_ShaderKeywords: _EMISSION _FLIPBOOKBLENDING_ON
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses:
   - GRABPASS
   - DistortionVectors
   - MOTIONVECTORS
   - ALWAYS
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
