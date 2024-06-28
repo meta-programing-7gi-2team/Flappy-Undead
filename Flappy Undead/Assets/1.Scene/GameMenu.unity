@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 76059298}
   - component: {fileID: 76059301}
   - component: {fileID: 76059302}
+  - component: {fileID: 76059303}
   m_Layer: 5
   m_Name: GameExit
   m_TagString: Untagged
@@ -317,7 +318,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 76059299}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 76059303}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &76059299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +396,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &76059303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76059296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393d74e7208d41d46b0aca2f3b367e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ranking_: {fileID: 1563503885}
+  Rankingbutten: 0
 --- !u!1 &112968980
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +736,7 @@ GameObject:
   - component: {fileID: 272978848}
   - component: {fileID: 272978847}
   - component: {fileID: 272978846}
+  - component: {fileID: 272978849}
   m_Layer: 5
   m_Name: Normal Select
   m_TagString: Untagged
@@ -819,6 +847,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272978844}
   m_CullTransparentMesh: 1
+--- !u!114 &272978849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272978844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef90800af5b244199037a7cc67b04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.2
+  waitSound: {fileID: 0}
 --- !u!1 &285774275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1338,7 @@ GameObject:
   - component: {fileID: 390892230}
   - component: {fileID: 390892229}
   - component: {fileID: 390892228}
+  - component: {fileID: 390892231}
   m_Layer: 5
   m_Name: Witch Select
   m_TagString: Untagged
@@ -1406,6 +1449,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390892226}
   m_CullTransparentMesh: 1
+--- !u!114 &390892231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390892226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef90800af5b244199037a7cc67b04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.2
+  waitSound: {fileID: 0}
 --- !u!1 &652243942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,6 +2168,7 @@ GameObject:
   - component: {fileID: 955739034}
   - component: {fileID: 955739033}
   - component: {fileID: 955739032}
+  - component: {fileID: 955739035}
   m_Layer: 5
   m_Name: Axe Select
   m_TagString: Untagged
@@ -2221,6 +2279,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955739030}
   m_CullTransparentMesh: 1
+--- !u!114 &955739035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955739030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef90800af5b244199037a7cc67b04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.2
+  waitSound: {fileID: 0}
 --- !u!1 &1105547502
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,6 +3169,7 @@ GameObject:
   - component: {fileID: 1599108409}
   - component: {fileID: 1599108408}
   - component: {fileID: 1599108407}
+  - component: {fileID: 1599108410}
   m_Layer: 5
   m_Name: Horn Select
   m_TagString: Untagged
@@ -3207,6 +3280,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599108405}
   m_CullTransparentMesh: 1
+--- !u!114 &1599108410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599108405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef90800af5b244199037a7cc67b04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.2
+  waitSound: {fileID: 0}
 --- !u!4 &1652849302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2676405798547930091, guid: 4b5b08dfd84e3c342b10a4e2ed977d48, type: 3}

@@ -28,4 +28,13 @@ public class MenuButton : MonoBehaviour
         Ranking_.SetActive(false);
         Rankingbutten = false;
     }
+
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
 }
