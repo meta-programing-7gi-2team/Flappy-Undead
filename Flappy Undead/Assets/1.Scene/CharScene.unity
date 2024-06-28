@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179721000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.37608194, y: -0.6837554, z: -0.90297985}
+  m_LocalPosition: {x: 0.37608194, y: -0.46, z: -0.90297985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 498253721883148063}
@@ -479,16 +479,10 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2e72792429f03174dbcd3b8481bf4112, type: 2}
   Speed: 5
   Health: 2
-  Cooltime: 5
-  isDead: 0
-  LastSkillTime: 0
   player_rid: {fileID: 0}
-  player_col: {fileID: 0}
-  player_rend: {fileID: 0}
-  player_ani: {fileID: 0}
   player_au: {fileID: 0}
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
-  hitClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
 --- !u!137 &10185190923749460
 SkinnedMeshRenderer:
@@ -1044,8 +1038,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498253721883148068}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.62091804, y: 0.6837554, z: 0.90297985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 498253721292954405}
@@ -1117,6 +1111,7 @@ GameObject:
   - component: {fileID: 498253721883148067}
   - component: {fileID: 498253721883148069}
   - component: {fileID: 1842706870}
+  - component: {fileID: 498253721883148070}
   m_Layer: 0
   m_Name: Ghost_Normal
   m_TagString: Player
@@ -1220,6 +1215,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &498253721883148070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498253721883148068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90acff9f44d3736428dc805e89cea663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 2e72792429f03174dbcd3b8481bf4112, type: 2}
+  Cooltime: 5
+  LastSkillTime: 0
+  player_col: {fileID: 0}
+  player_rend: {fileID: 0}
+  player_ani: {fileID: 0}
+  player_au: {fileID: 0}
+  giantClip: {fileID: 8300000, guid: 6d38095be3cf77646922b4b4316380bc, type: 3}
+  smallClip: {fileID: 8300000, guid: 11a7ef60369babf4aa37d32b9abe8b15, type: 3}
 --- !u!137 &498253721974422436
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -2224,16 +2240,10 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 50956a47789321144bf53d6865f9f65f, type: 2}
   Speed: 5
   Health: 2
-  Cooltime: 5
-  isDead: 0
-  LastSkillTime: 0
   player_rid: {fileID: 0}
-  player_col: {fileID: 0}
-  player_rend: {fileID: 0}
-  player_ani: {fileID: 0}
   player_au: {fileID: 0}
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
-  hitClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
 --- !u!82 &852467992395024311
 AudioSource:
@@ -3796,6 +3806,7 @@ GameObject:
   - component: {fileID: 2283816365539874934}
   - component: {fileID: 2283816365539874937}
   - component: {fileID: 2283816365539874936}
+  - component: {fileID: 2283816365539874938}
   m_Layer: 0
   m_Name: Ghost_Witch
   m_TagString: Player
@@ -3818,16 +3829,10 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: afa55266a1367a045a7e2cd1f66c89f9, type: 2}
   Speed: 5
   Health: 2
-  Cooltime: 5
-  isDead: 0
-  LastSkillTime: 0
   player_rid: {fileID: 0}
-  player_col: {fileID: 0}
-  player_rend: {fileID: 0}
-  player_ani: {fileID: 0}
   player_au: {fileID: 0}
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
-  hitClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
 --- !u!82 &2283816365539874937
 AudioSource:
@@ -3925,6 +3930,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2283816365539874938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283816365539874935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90acff9f44d3736428dc805e89cea663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: afa55266a1367a045a7e2cd1f66c89f9, type: 2}
+  Cooltime: 5
+  LastSkillTime: 0
+  player_col: {fileID: 0}
+  player_rend: {fileID: 0}
+  player_ani: {fileID: 0}
+  player_au: {fileID: 0}
+  giantClip: {fileID: 8300000, guid: 6d38095be3cf77646922b4b4316380bc, type: 3}
+  smallClip: {fileID: 8300000, guid: 11a7ef60369babf4aa37d32b9abe8b15, type: 3}
 --- !u!4 &2283816365620280713
 Transform:
   m_ObjectHideFlags: 0
@@ -4217,16 +4243,10 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 940a849465563ee4cb1d0c83bed1c19d, type: 2}
   Speed: 5
   Health: 2
-  Cooltime: 5
-  isDead: 0
-  LastSkillTime: 0
   player_rid: {fileID: 0}
-  player_col: {fileID: 0}
-  player_rend: {fileID: 0}
-  player_ani: {fileID: 0}
   player_au: {fileID: 0}
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
-  hitClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
 --- !u!82 &2820322976872125267
 AudioSource:
@@ -6721,6 +6741,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8855052669464166253}
   - component: {fileID: 9036980634191858231}
+  - component: {fileID: 8189980434243347928}
+  - component: {fileID: 8189980434243347929}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -6728,6 +6750,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!54 &8189980434243347928
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189980434243347927}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &8189980434243347929
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189980434243347927}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8206070634348076318
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,7 +6883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8189980434243347927}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.633918, y: 0.6837554, z: 0.90297985}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 8092444937221360500}
