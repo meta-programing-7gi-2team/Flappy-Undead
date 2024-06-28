@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float Speed = 5f;
     public int Health = 2;
     public float Cooltime = 5f;
-
+    public bool isDead = false;
     public float LastSkillTime = 0f;
 
     public Rigidbody player_rid;
@@ -25,11 +25,13 @@ public class PlayerController : MonoBehaviour
         Speed = data.Speed;
         Health = data.Health;
         Cooltime = data.CoolTime;
-
+        isDead = false;
         LastSkillTime = 0f;
     }
     private void Update()
     {
+        if (isDead) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Jump();
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Dead()
     {
+        isDead = true;
 
     }
     public void Use_Skill()
