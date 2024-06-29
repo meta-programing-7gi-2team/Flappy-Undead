@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FadeManager : MonoBehaviour
 {
     [SerializeField] private bool isFadeIn;
     [SerializeField] private GameObject panel;
+    private bool isFadeing = false;
 
     private void Start()
     {
@@ -26,20 +28,28 @@ public class FadeManager : MonoBehaviour
 
     public void FadeIn()
     {
+        if (!isFadeing)
+        {
+            isFadeing = true;
             panel.SetActive(true);
             StartCoroutine(FadeIn_Co());
+        }
     }
 
     public void FadeOut()
     {
-        panel.SetActive(true);
-        StartCoroutine(FadeOut_Co());
+        if (!isFadeing)
+        {
+            isFadeing = true;
+            panel.SetActive(true);
+            StartCoroutine(FadeOut_Co());
+        }
     }
 
     private IEnumerator FadeIn_Co()
     {
         float elapsedTime = 0f;
-        float fadeTime = 2f;
+        float fadeTime = 1f;
 
         while (elapsedTime <= fadeTime)
         {
@@ -48,6 +58,7 @@ public class FadeManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        isFadeing = false;
         panel.SetActive(false);
         yield break;
     }
@@ -55,7 +66,7 @@ public class FadeManager : MonoBehaviour
     private IEnumerator FadeOut_Co()
     {
         float elapsedTime = 0f;
-        float fadeTime = 2f;
+        float fadeTime = 1f;
 
         while (elapsedTime <= fadeTime)
         {
@@ -64,6 +75,7 @@ public class FadeManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        isFadeing = false;
         yield break;
     }
 }

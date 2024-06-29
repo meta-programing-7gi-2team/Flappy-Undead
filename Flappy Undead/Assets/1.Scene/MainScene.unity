@@ -1740,6 +1740,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179721001}
+  - component: {fileID: 179721002}
+  - component: {fileID: 179721003}
   m_Layer: 0
   m_Name: Char
   m_TagString: Untagged
@@ -1766,6 +1768,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179721002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179721000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67303f13cf91f64a858398a9fc65796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Normal: {fileID: 498253721883148068}
+  Witch: {fileID: 2283816365539874935}
+  Axe: {fileID: 2820322976872125264}
+  Horn: {fileID: 852467992395024308}
+--- !u!114 &179721003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179721000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb234b3be0165c4f852266667d05e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 384794653}
+  CountdownText: {fileID: 1070419345}
+  fade: {fileID: 0}
 --- !u!4 &197415293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1435131483841817996, guid: d9b0ea3d8b855e64e90499c5d5981ac7, type: 3}
@@ -2990,7 +3023,6 @@ GameObject:
   - component: {fileID: 335182504}
   - component: {fileID: 335182503}
   - component: {fileID: 335182507}
-  - component: {fileID: 335182508}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3073,6 +3105,7 @@ RectTransform:
   - {fileID: 593236418}
   - {fileID: 1070419344}
   - {fileID: 384794654}
+  - {fileID: 756855876}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3090,23 +3123,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 335182502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0807c8d2f2965e4ab1b80a3db695fa4, type: 3}
+  m_Script: {fileID: 11500000, guid: b7f0bf4db9e181c449ef34031696b680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPause: 0
-  CountdownText: {fileID: 1070419345}
---- !u!114 &335182508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335182502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcb234b3be0165c4f852266667d05e51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  isFadeIn: 1
+  panel: {fileID: 756855875}
 --- !u!4 &335353375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1569805169333804177, guid: 0c2f1fb509b67014bbd7626f123123d4, type: 3}
@@ -3450,7 +3471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335182508}
+      - m_Target: {fileID: 179721003}
         m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
@@ -6737,6 +6758,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5263273858647058942, guid: 58543e3d6e1c1f5488ffd8c9ba997c4c, type: 3}
   m_PrefabInstance: {fileID: 747622449}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &756855875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756855876}
+  - component: {fileID: 756855878}
+  - component: {fileID: 756855877}
+  m_Layer: 5
+  m_Name: FadePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &756855876
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756855875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 335182506}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &756855877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756855875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &756855878
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756855875}
+  m_CullTransparentMesh: 1
 --- !u!4 &763971246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698176589872578882, guid: 52b81639f4b0ece4799b58c50f85be23, type: 3}
@@ -6889,7 +6985,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335182508}
+      - m_Target: {fileID: 179721003}
         m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -16156,7 +16252,6 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
   hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
-  PausePanel: {fileID: 384794653}
 --- !u!4 &1846244711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698176589872578882, guid: 52b81639f4b0ece4799b58c50f85be23, type: 3}
@@ -17242,7 +17337,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335182508}
+      - m_Target: {fileID: 179721003}
         m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -19505,6 +19600,7 @@ GameObject:
   - component: {fileID: 498253721883148069}
   - component: {fileID: 1842706870}
   - component: {fileID: 498253721883148070}
+  - component: {fileID: 498253721883148071}
   m_Layer: 0
   m_Name: Ghost_Normal
   m_TagString: Player
@@ -19629,6 +19725,21 @@ MonoBehaviour:
   player_au: {fileID: 0}
   giantClip: {fileID: 8300000, guid: 6d38095be3cf77646922b4b4316380bc, type: 3}
   smallClip: {fileID: 8300000, guid: 11a7ef60369babf4aa37d32b9abe8b15, type: 3}
+--- !u!114 &498253721883148071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498253721883148068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb234b3be0165c4f852266667d05e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 384794653}
+  CountdownText: {fileID: 1070419345}
+  fade: {fileID: 0}
 --- !u!137 &498253721974422436
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -20597,6 +20708,7 @@ GameObject:
   - component: {fileID: 852467992395024309}
   - component: {fileID: 852467992395024311}
   - component: {fileID: 852467992395024310}
+  - component: {fileID: 852467992395024315}
   m_Layer: 0
   m_Name: Ghost_Horn
   m_TagString: Player
@@ -20638,7 +20750,6 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
   hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
-  PausePanel: {fileID: 384794653}
 --- !u!82 &852467992395024311
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20787,6 +20898,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &852467992395024315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852467992395024308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb234b3be0165c4f852266667d05e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 384794653}
+  CountdownText: {fileID: 1070419345}
+  fade: {fileID: 0}
 --- !u!1 &852467992416053025
 GameObject:
   m_ObjectHideFlags: 0
@@ -22201,6 +22327,7 @@ GameObject:
   - component: {fileID: 2283816365539874937}
   - component: {fileID: 2283816365539874936}
   - component: {fileID: 2283816365539874938}
+  - component: {fileID: 2283816365539874939}
   m_Layer: 0
   m_Name: Ghost_Witch
   m_TagString: Player
@@ -22228,7 +22355,6 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
   hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
-  PausePanel: {fileID: 384794653}
 --- !u!82 &2283816365539874937
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22346,6 +22472,21 @@ MonoBehaviour:
   player_au: {fileID: 0}
   giantClip: {fileID: 8300000, guid: 6d38095be3cf77646922b4b4316380bc, type: 3}
   smallClip: {fileID: 8300000, guid: 11a7ef60369babf4aa37d32b9abe8b15, type: 3}
+--- !u!114 &2283816365539874939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283816365539874935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb234b3be0165c4f852266667d05e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 384794653}
+  CountdownText: {fileID: 1070419345}
+  fade: {fileID: 0}
 --- !u!4 &2283816365620280713
 Transform:
   m_ObjectHideFlags: 0
@@ -22602,6 +22743,7 @@ GameObject:
   - component: {fileID: 2820322976872125265}
   - component: {fileID: 2820322976872125267}
   - component: {fileID: 2820322976872125266}
+  - component: {fileID: 2820322976872125269}
   m_Layer: 0
   m_Name: Ghost_Axe
   m_TagString: Player
@@ -22643,7 +22785,6 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: d359ccb96af26ba46b01da37ea39cd3b, type: 3}
   hitClip: {fileID: 8300000, guid: 5eefb3c69486a1d4889987a326b0d119, type: 3}
   deathClip: {fileID: 8300000, guid: a1724e5ccf935d648b80bc96d2b84036, type: 3}
-  PausePanel: {fileID: 384794653}
 --- !u!82 &2820322976872125267
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22757,6 +22898,21 @@ Transform:
   m_Father: {fileID: 179721001}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2820322976872125269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820322976872125264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb234b3be0165c4f852266667d05e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 384794653}
+  CountdownText: {fileID: 1070419345}
+  fade: {fileID: 0}
 --- !u!54 &2820322976872125270
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
@@ -9,21 +10,22 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody player_rid;
     public AudioSource player_au;
+    private PauseButton pause;
 
     public AudioClip jumpClip;
     public AudioClip hitClip;
     public AudioClip deathClip;
 
-    public GameObject PausePanel;
-
     private void Awake()
     {
         player_rid = GetComponent<Rigidbody>();
         player_au = GetComponent<AudioSource>();
+        TryGetComponent(out pause);
 
         Speed = data.Speed;
         Health = data.Health;
     }
+
     private void Update()
     {
         if (GameManager.instance.isPause) return;
@@ -35,9 +37,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!PausePanel.activeSelf)
+            if (!pause.PausePanel.activeSelf)
             {
-                PausePanel.SetActive(true);
+                pause.PausePanel.SetActive(true);
                 player_rid.isKinematic = true;
                 GameManager.instance.isPause = true;
                 Time.timeScale = 0f;
@@ -62,6 +64,26 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         player_au.PlayOneShot(deathClip);
+    }
+
+    public IEnumerator PlayCountdown()
+    {
+        pause.PausePanel.SetActive(false);
+        pause.CountdownText.gameObject.SetActive(true);
+        int count = 3;
+        while (count > 0)
+        {
+            pause.CountdownText.text = count.ToString();
+            yield return new WaitForSecondsRealtime(1f);
+            count--;
+        }
+
+        pause.CountdownText.text = "Go!";
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        pause.CountdownText.gameObject.SetActive(false);
+    
+        StartPlayerMovement();
     }
 
     public void StartPlayerMovement()
