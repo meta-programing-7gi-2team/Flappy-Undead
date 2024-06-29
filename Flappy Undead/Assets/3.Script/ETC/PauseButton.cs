@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class PauseButton : MonoBehaviour
 {
     private PlayerController playercontroller;
-    private GameObject hero; // 용사 오브젝트
 
     public GameObject PausePanel;
     public Text CountdownText;
@@ -16,12 +15,12 @@ public class PauseButton : MonoBehaviour
     private void Start()
     {
         playercontroller = FindObjectOfType<PlayerController>();
-        hero = GameObject.FindGameObjectWithTag("Hero"); // 용사 오브젝트
         fade = FindObjectOfType<FadeManager>();
         GameManager.instance.ResetScore();
         GameManager.instance.isRankReg = false;
         GameManager.instance.isGameOver = false;
         GameManager.instance.isPause = false;
+        GameManager.instance.isRankRegClose = false;
     }
 
     public void Play()
@@ -41,6 +40,7 @@ public class PauseButton : MonoBehaviour
         GameManager.instance.ResetScore();
         GameManager.instance.isRankReg = false;
         GameManager.instance.isGameOver = false;
+        GameManager.instance.isRankRegClose = false;
     }
 
     public void Menu()

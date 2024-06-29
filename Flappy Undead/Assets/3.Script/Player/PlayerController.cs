@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource player_au;
     private PauseButton pause;
     [SerializeField] private Canvas gameOverCanvas;
+    [SerializeField] private Canvas rankRegistrationCanvas;
 
     public AudioClip jumpClip;
     public AudioClip hitClip;
@@ -30,12 +31,27 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (GameManager.instance.isPause) return;
+        if (GameManager.instance.isRankReg && !GameManager.instance.isRankRegClose)
+        {
+            if (!rankRegistrationCanvas.gameObject.activeSelf)
+            {
+                rankRegistrationCanvas.gameObject.SetActive(true);
+            }
+            return;
+        }
+        if(GameManager.instance.isRankRegClose)
+        {
+            if (rankRegistrationCanvas.gameObject.activeSelf)
+            {
+                rankRegistrationCanvas.gameObject.SetActive(false);
+                GameManager.instance.isPause = true;
+            }
+        }
         if (GameManager.instance.isGameOver)
         {
             if (!gameOverCanvas.gameObject.activeSelf)
             {
                 gameOverCanvas.gameObject.SetActive(true);
-                GameManager.instance.isPause = true;
             }
             return;
         }    

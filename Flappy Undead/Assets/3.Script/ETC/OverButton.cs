@@ -28,8 +28,11 @@ public class OverButton : MonoBehaviour
         {
             GameManager.instance.isRankReg = true;
             RankManager.AddPlayerRank(GameManager.instance.Score);
-            //TODO: 등록 완료 창 혹은 랭킹 창 뜨면 좋을 듯
         }
+    }
+    public void Rank_Close()
+    {
+        GameManager.instance.isRankRegClose = true;
     }
 
     private IEnumerator MenuMove_co()
