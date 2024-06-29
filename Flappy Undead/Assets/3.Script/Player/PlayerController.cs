@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.instance.isPause) return;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Jump();
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!PausePanel.activeSelf)
@@ -33,20 +40,8 @@ public class PlayerController : MonoBehaviour
                 PausePanel.SetActive(true);
                 player_rid.isKinematic = true;
                 GameManager.instance.isPause = true;
+                Time.timeScale = 0f;
             }
-            else
-            {
-                PausePanel.SetActive(false);
-                player_rid.isKinematic = false;
-                GameManager.instance.isPause = false;
-            }
-        }
-
-        if (GameManager.instance.isPause) return;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Jump();
         }
     }
     public void Jump()
@@ -67,5 +62,12 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         player_au.PlayOneShot(deathClip);
+    }
+
+    public void StartPlayerMovement()
+    {
+        player_rid.isKinematic = false;
+        GameManager.instance.isPause = false;
+        Time.timeScale = 1f;
     }
 }
