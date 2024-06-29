@@ -1,29 +1,110 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 
 public static class RankManager
 {
-    private static string filePath = Application.persistentDataPath + "/rankData.json";
+    private static List<PlayerRank> rankEntries = new List<PlayerRank>();
+    private static int maxEntries = 5; // 최대 저장할 랭킹 개수
 
-    public static void SaveRank(List<PlayerRank> ranks)
+    // 랭킹 데이터 초기화
+    public static void InitializeRankData()
     {
-        string jsonData = JsonUtility.ToJson(new SerializableList<PlayerRank>(ranks));
-        File.WriteAllText(filePath, jsonData);
+        rankEntries.Clear(); // 초기화할 때 리스트 비우기
     }
 
+    // 랭킹 데이터 저장
+    public static void SaveRank()
+    {
+        // 순위 순으로 정렬
+        rankEntries = rankEntries.OrderBy(entry => entry.rank).ToList();
+
+        // 최대 개수만큼만 남기기
+        if (rankEntries.Count > maxEntries)
+        {
+            rankEntries = rankEntries.GetRange(0, maxEntries);
+        }
+
+        // JSON으로 직렬화하여 저장
+        string jsonData = JsonUtility.ToJson(new SerializableList<PlayerRank>(rankEntries));
+        PlayerPrefs.SetString("RankData", jsonData);
+        PlayerPrefs.Save();
+    }
+
+    // 랭킹 데이터 불러오기
     public static List<PlayerRank> LoadRank()
     {
-        if (File.Exists(filePath))
+        if (PlayerPrefs.HasKey("RankData"))
         {
-            string jsonData = File.ReadAllText(filePath);
-            SerializableList<PlayerRank> ranks = JsonUtility.FromJson<SerializableList<PlayerRank>>(jsonData);
-            return ranks.list;
+            string jsonData = PlayerPrefs.GetString("RankData");
+            SerializableList<PlayerRank> loadedRanks = JsonUtility.FromJson<SerializableList<PlayerRank>>(jsonData);
+            rankEntries = loadedRanks.list;
         }
         else
         {
-            return new List<PlayerRank>();
+            rankEntries.Clear(); // 저장된 데이터가 없을 경우 리스트 초기화
         }
+
+        return rankEntries;
+    }
+
+    // 랭킹 데이터 추가
+    public static void AddPlayerRank(int score)
+    {
+        // 새 랭킹 항목 생성
+        PlayerRank newEntry = new PlayerRank(-1, score);
+
+        // 기존 랭킹과 비교하여 삽입 위치 결정
+        int insertIndex = -1;
+        for (int i = 0; i < rankEntries.Count; i++)
+        {
+            if (score > rankEntries[i].score)
+            {
+                insertIndex = i;
+                break;
+            }
+        }
+
+        if (insertIndex != -1)
+        {
+            // 삽입 위치에 새 항목 삽입
+            rankEntries.Insert(insertIndex, newEntry);
+
+            // 순위 재설정
+            UpdateRanks();
+
+            // 최대 개수만큼만 남기기
+            if (rankEntries.Count > maxEntries)
+            {
+                rankEntries = rankEntries.GetRange(0, maxEntries);
+            }
+
+            // 순위 재설정 후 저장
+            SaveRank();
+        }
+        else if(rankEntries.Count == 0)
+        {
+            rankEntries.Insert(0, newEntry);
+            UpdateRanks();
+            SaveRank();
+        }
+    }
+
+    // 순위 재설정
+    private static void UpdateRanks()
+    {
+        for (int i = 0; i < rankEntries.Count; i++)
+        {
+            rankEntries[i].rank = i + 1;
+        }
+    }
+
+    // 랭킹 데이터 초기화 (모두 삭제)
+    public static void ClearRankData()
+    {
+        rankEntries.Clear();
+        PlayerPrefs.DeleteKey("RankData");
+        PlayerPrefs.Save();
     }
 
     [System.Serializable]

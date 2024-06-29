@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody player_rid;
     public AudioSource player_au;
     private PauseButton pause;
+    [SerializeField] private Canvas gameOverCanvas;
 
     public AudioClip jumpClip;
     public AudioClip hitClip;
@@ -31,16 +32,11 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.isPause) return;
         if (GameManager.instance.isGameOver)
         {
-            //TODO: 임시 코드 추가임. 랭킹 등록 필요
-            #region
-            if (!pause.PausePanel.activeSelf)
+            if (!gameOverCanvas.gameObject.activeSelf)
             {
-                pause.PausePanel.SetActive(true);
-                player_rid.isKinematic = true;
+                gameOverCanvas.gameObject.SetActive(true);
                 GameManager.instance.isPause = true;
-                Time.timeScale = 0f;
             }
-            #endregion
             return;
         }    
 

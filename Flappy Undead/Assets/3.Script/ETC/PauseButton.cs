@@ -19,7 +19,9 @@ public class PauseButton : MonoBehaviour
         hero = GameObject.FindGameObjectWithTag("Hero"); // 용사 오브젝트
         fade = FindObjectOfType<FadeManager>();
         GameManager.instance.ResetScore();
+        GameManager.instance.isRankReg = false;
         GameManager.instance.isGameOver = false;
+        GameManager.instance.isPause = false;
     }
 
     public void Play()
@@ -37,6 +39,7 @@ public class PauseButton : MonoBehaviour
         playercontroller.player_rid.isKinematic = false;
         GameManager.instance.isPause = false;
         GameManager.instance.ResetScore();
+        GameManager.instance.isRankReg = false;
         GameManager.instance.isGameOver = false;
     }
 

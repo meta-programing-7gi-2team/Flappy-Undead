@@ -14,24 +14,24 @@ public class RankingEnable : MonoBehaviour
     {
         List<PlayerRank> loadedRanks = RankManager.LoadRank();
 
-        foreach (PlayerRank rank in loadedRanks)
+        foreach (PlayerRank ranking in loadedRanks)
         {
-            switch(rank.playerName)
+            switch(ranking.rank)
             {
                 case 1:
-                    _1st_Text.text = string.Format("{0}.{1}", rank.playerName, rank.score);
+                    _1st_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
                     break;
                 case 2:
-                    _2nd_Text.text = string.Format("{0}.{1}", rank.playerName, rank.score);
+                    _2nd_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
                     break;
                 case 3:
-                    _3rd_Text.text = string.Format("{0}.{1}", rank.playerName, rank.score);
+                    _3rd_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
                     break;
                 case 4:
-                    _4th_Text.text = string.Format("{0}.{1}", rank.playerName, rank.score);
+                    _4th_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
                     break;
                 case 5:
-                    _5th_Text.text = string.Format("{0}.{1}", rank.playerName, rank.score);
+                    _5th_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
                     break;
             }
         }

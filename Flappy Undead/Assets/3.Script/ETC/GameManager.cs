@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool Axe;
     public bool Horn;
     public bool isGameOver = false;
+    public bool isRankReg = false;
     public int Score { get; private set; } // Á¡¼ö
 
     private void Awake()

@@ -1,12 +1,12 @@
 [System.Serializable]
 public class PlayerRank
 {
-    public int playerName;
+    public int rank;
     public int score;
 
-    public PlayerRank(int name, int score)
+    public PlayerRank(int rank, int score)
     {
-        this.playerName = name;
+        this.rank = rank;
         this.score = score;
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.052113645, g: 0.06311446, b: 0.11915464, a: 1}
+  m_IndirectSpecularColor: {r: 0.052113697, g: 0.0631145, b: 0.119154744, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -617,6 +617,7 @@ MonoBehaviour:
   Witch: 0
   Axe: 0
   Horn: 0
+  isGameOver: 0
 --- !u!1 &242740061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,7 +1298,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1.
@@ -2086,7 +2087,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 2.
@@ -2898,7 +2899,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 4.
@@ -3762,7 +3763,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 3.
@@ -3915,7 +3916,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 5.
@@ -3938,6 +3939,7 @@ GameObject:
   - component: {fileID: 1986029837}
   - component: {fileID: 1986029839}
   - component: {fileID: 1986029838}
+  - component: {fileID: 1986029840}
   m_Layer: 5
   m_Name: Ranking Panel
   m_TagString: Untagged
@@ -4009,6 +4011,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986029836}
   m_CullTransparentMesh: 1
+--- !u!114 &1986029840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986029836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae5710c37120da47a4580c09a601394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _1st_Text: {fileID: 354583278}
+  _2nd_Text: {fileID: 750165914}
+  _3rd_Text: {fileID: 1842666806}
+  _4th_Text: {fileID: 1362561696}
+  _5th_Text: {fileID: 1965331716}
 --- !u!1001 &2043802397
 PrefabInstance:
   m_ObjectHideFlags: 0
