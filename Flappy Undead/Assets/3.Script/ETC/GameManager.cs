@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public bool isPause; // 일시정지중에 모든게 멈춰야하므로 만들어둔 부분
 
     private void Awake()
     {
@@ -14,11 +15,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
-
-
-
 
 }

@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip hitClip;
     public AudioClip deathClip;
 
+    public GameObject PausePanel;
+
     private void Awake()
     {
         player_rid = GetComponent<Rigidbody>();
@@ -24,6 +26,24 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!PausePanel.activeSelf)
+            {
+                PausePanel.SetActive(true);
+                player_rid.isKinematic = true;
+                GameManager.instance.isPause = true;
+            }
+            else
+            {
+                PausePanel.SetActive(false);
+                player_rid.isKinematic = false;
+                GameManager.instance.isPause = false;
+            }
+        }
+
+        if (GameManager.instance.isPause) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Jump();
