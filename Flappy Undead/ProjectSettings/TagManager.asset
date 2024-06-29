@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - Score_Zone
   - Super
+  - Floor
+  - Hero
   layers:
   - Default
   - TransparentFX

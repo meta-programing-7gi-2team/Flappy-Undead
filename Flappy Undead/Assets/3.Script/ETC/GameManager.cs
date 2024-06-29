@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public bool Witch;
     public bool Axe;
     public bool Horn;
+    public bool isGameOver = false;
+    public int Score { get; private set; } // Á¡¼ö
 
     private void Awake()
     {
@@ -23,5 +25,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void ResetScore()
+    {
+        Score = 0;
+    }
+    public void AddScore(int score)
+    {
+        this.Score += score;
     }
 }
