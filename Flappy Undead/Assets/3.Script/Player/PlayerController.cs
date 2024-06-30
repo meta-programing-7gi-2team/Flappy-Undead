@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Dead()
     {
+        GameManager.instance.isGameOver = true;
         player_au.PlayOneShot(deathClip);
     }
 
@@ -122,20 +123,21 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Score_Zone")) // 점수 획득
         {
-            //TODO: 점수 2배 획득 캐릭터 설정 필요
-            GameManager.instance.AddScore(1);
+            //TODO: 점수 2배 획득 캐릭터 설정 필요\
+            if(data.Type.Equals(CharType.Axe))
+                GameManager.instance.AddScore(2);
+            else
+                GameManager.instance.AddScore(1);
         }
         if (other.CompareTag("Obstacle")) // 장애물에 닿았을 시 피 감소
         {
             //TODO: 커진 상황에서 Health 감소가 일어나지 않게 조건 추가 필요
-            Health -= 1;
-            if(Health <= 0)
-            {
-                GameManager.instance.isGameOver = true;
-            }
+            if (transform.tag.Equals("Super") || transform.tag.Equals("Invisible")) return;
+            OnDamage();
         }
         if (other.CompareTag("Floor")) // 바닥에 닿았을 시 게임오버
         {
+            if (transform.tag.Equals("Super")) return;
             GameManager.instance.isGameOver = true;
         }
     }

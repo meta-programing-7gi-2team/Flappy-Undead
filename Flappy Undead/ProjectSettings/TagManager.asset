@@ -9,6 +9,7 @@ TagManager:
   - Super
   - Floor
   - Hero
+  - Invisible
   layers:
   - Default
   - TransparentFX

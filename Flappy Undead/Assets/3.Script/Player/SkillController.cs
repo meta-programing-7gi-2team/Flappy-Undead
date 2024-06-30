@@ -43,21 +43,23 @@ public class SkillController : MonoBehaviour
     {
         switch (data.Type)
         {
-            case Player_Data.CharType.Normal:
+            case CharType.Normal:
                 StartCoroutine(Invisible_co());
                 break;
-            case Player_Data.CharType.Witch:
+            case CharType.Witch:
                 StartCoroutine(Giant_co());
                 break;
         }
     }
     public IEnumerator Invisible_co()
     {
-        player_col.enabled = false;
+        transform.tag = "Invisible";
         player_rend.material.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 0.3f);
+        player_au.PlayOneShot(giantClip);
         yield return new WaitForSeconds(3.0f);
-        player_col.enabled = true;
+        transform.tag = "Player";
         player_rend.material.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 1f);
+        player_au.PlayOneShot(smallClip);
     }
     public IEnumerator Giant_co()
     {
