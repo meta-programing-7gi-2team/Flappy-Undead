@@ -45,21 +45,20 @@ public class PauseButton : MonoBehaviour
 
     public void Menu()
     {
-        playercontroller.player_rid.isKinematic = false;
         GameManager.instance.isPause = false;
         GameManager.instance.Normal = false;
         GameManager.instance.Witch = false;
         GameManager.instance.Axe = false;
         GameManager.instance.Horn = false;
-        Time.timeScale = 1f;
         fade.FadeOut();
         StartCoroutine(MenuMove_co());
     }
 
     private IEnumerator MenuMove_co()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         SceneManager.LoadScene("GameMenu");
+        Time.timeScale = 1f;
     }
 
 }
