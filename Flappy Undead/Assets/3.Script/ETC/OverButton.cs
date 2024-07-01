@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class OverButton : MonoBehaviour
 {
     private FadeManager fade;
+    private PlayerController player;
 
     private void Start()
     {
         fade = FindObjectOfType<FadeManager>();
+        player = FindObjectOfType<PlayerController>();
     }
 
     public void Menu()
@@ -18,10 +20,16 @@ public class OverButton : MonoBehaviour
         GameManager.instance.Witch = false;
         GameManager.instance.Axe = false;
         GameManager.instance.Horn = false;
-        Time.timeScale = 1f;
-        fade.FadeOut();
+        player.GameOver_C();
         StartCoroutine(MenuMove_co());
     }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void Rank()
     {
         if(!GameManager.instance.isRankReg)
@@ -37,7 +45,9 @@ public class OverButton : MonoBehaviour
 
     private IEnumerator MenuMove_co()
     {
-        yield return new WaitForSeconds(1f);
+        fade.FadeOut();
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GameMenu");
     }
 }

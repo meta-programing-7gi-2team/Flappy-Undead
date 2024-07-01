@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 public static class RankManager
 {
@@ -27,16 +28,18 @@ public static class RankManager
 
         // JSON으로 직렬화하여 저장
         string jsonData = JsonUtility.ToJson(new SerializableList<PlayerRank>(rankEntries));
-        PlayerPrefs.SetString("RankData", jsonData);
-        PlayerPrefs.Save();
+
+        File.WriteAllText(Application.dataPath + "/SaveFile.json", jsonData);
     }
 
     // 랭킹 데이터 불러오기
     public static List<PlayerRank> LoadRank()
     {
-        if (PlayerPrefs.HasKey("RankData"))
+        string filePath = Application.dataPath + "/SaveFile.json";
+
+        if (File.Exists(filePath))
         {
-            string jsonData = PlayerPrefs.GetString("RankData");
+            string jsonData = File.ReadAllText(filePath);
             SerializableList<PlayerRank> loadedRanks = JsonUtility.FromJson<SerializableList<PlayerRank>>(jsonData);
             rankEntries = loadedRanks.list;
         }
@@ -103,14 +106,6 @@ public static class RankManager
         {
             rankEntries[i].rank = i + 1;
         }
-    }
-
-    // 랭킹 데이터 초기화 (모두 삭제)
-    public static void ClearRankData()
-    {
-        rankEntries.Clear();
-        PlayerPrefs.DeleteKey("RankData");
-        PlayerPrefs.Save();
     }
 
     [System.Serializable]
