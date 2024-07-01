@@ -82,9 +82,15 @@ public static class RankManager
             // 순위 재설정 후 저장
             SaveRank();
         }
-        else if(rankEntries.Count == 0)
+        else if (rankEntries.Count == 0)
         {
             rankEntries.Insert(0, newEntry);
+            UpdateRanks();
+            SaveRank();
+        }
+        else
+        {
+            rankEntries.Insert(rankEntries.Count, newEntry);
             UpdateRanks();
             SaveRank();
         }

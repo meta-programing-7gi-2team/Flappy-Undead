@@ -59,6 +59,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Jump();
+            if (GameManager.instance.isplayerjump)
+            {
+                GameManager.instance.isplayerjump = false;
+                player_rid.isKinematic = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public bool isRankReg = false;
     public bool isRankRegClose = false;
+    public bool isplayerjump = false;
     public int Score { get; private set; } // Á¡¼ö
 
     private void Awake()

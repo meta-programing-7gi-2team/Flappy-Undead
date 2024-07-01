@@ -37,6 +37,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.isplayerjump)
+            return;
         if (Time.time >= LastSpawnTime + TimeSpawn)
         {
             LastSpawnTime = Time.time;

@@ -8,6 +8,7 @@ public class CharacterStart : MonoBehaviour
     [SerializeField] private GameObject Witch;
     [SerializeField] private GameObject Axe;
     [SerializeField] private GameObject Horn;
+    private PlayerController player;
 
     private void Start()
     {
@@ -17,6 +18,9 @@ public class CharacterStart : MonoBehaviour
             Witch.SetActive(false);
             Axe.SetActive(false);
             Horn.SetActive(false);
+            player = FindObjectOfType<PlayerController>();
+            player.player_rid.isKinematic = true;
+            GameManager.instance.isplayerjump = true;
         }
 
         if (GameManager.instance.Witch) 
@@ -25,6 +29,9 @@ public class CharacterStart : MonoBehaviour
             Witch.SetActive(true);
             Axe.SetActive(false);
             Horn.SetActive(false);
+            player = FindObjectOfType<PlayerController>();
+            player.player_rid.isKinematic = true;
+            GameManager.instance.isplayerjump = true;
         }
 
         if (GameManager.instance.Axe)
@@ -33,6 +40,9 @@ public class CharacterStart : MonoBehaviour
             Witch.SetActive(false);
             Axe.SetActive(true);
             Horn.SetActive(false);
+            player = FindObjectOfType<PlayerController>();
+            player.player_rid.isKinematic = true;
+            GameManager.instance.isplayerjump = true;
         }
 
         if (GameManager.instance.Horn)
@@ -41,6 +51,9 @@ public class CharacterStart : MonoBehaviour
             Witch.SetActive(false);
             Axe.SetActive(false);
             Horn.SetActive(true);
+            player = FindObjectOfType<PlayerController>();
+            player.player_rid.isKinematic = true;
+            GameManager.instance.isplayerjump = true;
         }
 
     }

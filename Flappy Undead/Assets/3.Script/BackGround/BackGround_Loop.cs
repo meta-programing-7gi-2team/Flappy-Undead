@@ -19,6 +19,8 @@ public class BackGround_Loop : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isplayerjump)
+            return;
         // 패널을 이동시킵니다.
         Vector3 direction = isBack ? Vector3.back : Vector3.forward;
         transform.Translate(direction * scrollSpeed * Time.deltaTime);

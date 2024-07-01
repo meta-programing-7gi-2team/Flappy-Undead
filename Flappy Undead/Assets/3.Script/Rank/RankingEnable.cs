@@ -19,19 +19,19 @@ public class RankingEnable : MonoBehaviour
             switch(ranking.rank)
             {
                 case 1:
-                    _1st_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
+                    _1st_Text.text = string.Format("{0}. Score {1}", ranking.rank, ranking.score);
                     break;
                 case 2:
-                    _2nd_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
+                    _2nd_Text.text = string.Format("{0}. Score {1}", ranking.rank, ranking.score);
                     break;
                 case 3:
-                    _3rd_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
+                    _3rd_Text.text = string.Format("{0}. Score {1}", ranking.rank, ranking.score);
                     break;
                 case 4:
-                    _4th_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
+                    _4th_Text.text = string.Format("{0}. Score {1}", ranking.rank, ranking.score);
                     break;
                 case 5:
-                    _5th_Text.text = string.Format("{0}. {1}", ranking.rank, ranking.score);
+                    _5th_Text.text = string.Format("{0}. Score {1}", ranking.rank, ranking.score);
                     break;
             }
         }

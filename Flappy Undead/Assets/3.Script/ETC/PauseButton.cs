@@ -45,7 +45,6 @@ public class PauseButton : MonoBehaviour
 
     public void Menu()
     {
-        //TODO: 애니메이션 움직임 수정 필요
         playercontroller.player_rid.isKinematic = false;
         GameManager.instance.isPause = false;
         GameManager.instance.Normal = false;

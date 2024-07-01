@@ -8,6 +8,8 @@ public class Scroll_Obstacle : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.isplayerjump)
+            return;
         transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
     }
 }
