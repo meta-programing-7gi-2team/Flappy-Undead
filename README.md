@@ -4,6 +4,10 @@
 <li>원작과 동일한 사이드뷰로 진행되며 2D가 아닌 3D로 진행됩니다. 게임은 할로윈 컨셉으로 제작하였습니다.</li>
 <li>4개의 캐릭터가 있으며 캐릭터 별로 고유한 특수 능력을 가져 취향에 맞는 플레이가 가능합니다.</li>
 
+## 유튜브 영상
+[![image](https://github.com/user-attachments/assets/3c371aa8-ea04-4455-8be3-d4f8965b6209)](https://youtu.be/4msD1FqOKBg?si=xWqkla84E8xfShYo)
+
+
 ## 개발 환경
 제작 기간 : 2024.06.28.~2024.06.30. <br>
 툴 : Unity 2020.3.36f1 / Visual Studio 2019 <br>
